@@ -9,7 +9,6 @@
         </div>
         <div class="panel-body">
             @include('shared._errors')
-            {{getenv("DATABASE_URL")}}
 
             <form method="POST" action="{{route('users.store')}}">
                 {{csrf_field()}}
