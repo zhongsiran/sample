@@ -13,7 +13,11 @@
         <div class="container">
             <div class="col-md-offset-1 col-md-10">
                 @include('shared._messages')
-                @yield('content')
+            </div>
+        </div>
+        @yield('content')
+        <div class="container">
+            <div class="col-md-offset-1 col-md-10">
                 @include('layouts._footer')
             </div>
         </div>

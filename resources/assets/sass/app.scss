@@ -7,6 +7,7 @@
 
 // Bootstrap
 @import "~bootstrap-sass/assets/stylesheets/bootstrap";
+@import "~weui-sass/src/style/weui.scss";
 
 $navbar-color: #3c3e42;
 
@@ -74,6 +75,14 @@ p {
         color: #fff;
     }
 }
+
+#logout {
+  cursor: default;
+  &:hover {
+    background-color: transparent;
+  }
+}
+
 
 /* footer */
 footer {
