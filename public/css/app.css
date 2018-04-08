@@ -11435,11 +11435,6 @@ p {
 
 /* header */
 
-header img.brand-icon {
-  width: 17px;
-  height: 17px;
-}
-
 .navbar-inverse {
   background-color: #3c3e42;
 }
@@ -11567,5 +11562,17 @@ input {
 
 .panel {
   margin-top: 50px;
+}
+
+/* Users edit */
+
+.gravatar_edit {
+  margin: 15px auto;
+  text-align: center;
+}
+
+.gravatar_edit .gravatar {
+  float: none;
+  max-width: 100px;
 }
 
