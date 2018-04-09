@@ -9,6 +9,14 @@ use Auth;
 
 class UsersController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth', [
+            'except' => ['create', 'store']
+        ]);
+    }
+
+
     public function create()
     {
         return view('users.create');
@@ -40,6 +48,7 @@ class UsersController extends Controller
 
     public function edit(User $user)
     {
+        $this->authorize('update', $user);
         return view('users.edit', compact('user'));
     }
 
@@ -47,13 +56,20 @@ class UsersController extends Controller
     {
         $this->validate($request, [
             'name' => 'required|max:50',
-            'password' => 'required|confirmed|min:6'
+            'password' => 'nullable|confirmed|min:6'
         ]);
 
-        $user->update([
-            'name' => $request->name,
-            'password' => $request->password
-        ]);
+        $this->authorize('update', $user);
+
+        $data = [];
+        $data['name'] = $request->name;
+        if ($request->password) {
+            $data['password'] = bcrypt($request->password);
+        }
+
+        $user->update($data);
+
+        $session()->flash('sucess', '个人资料更新成功');
 
         return redirect()->route('users.show', $user->id);
     }
