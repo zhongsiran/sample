@@ -14,7 +14,8 @@
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-Route::get('/', 'StaticPagesController@home')->name('home');
+
+// Route::get('/', 'StaticPagesController@home')->name('home');
 Route::get('/help', 'StaticPagesController@help')->name('help');
 Route::get('/about', 'StaticPagesController@about')->name('about');
 
@@ -25,5 +26,5 @@ Route::get('login', 'SessionsController@create')->name('login');
 Route::post('login', 'SessionsController@store')->name('login');
 Route::delete('logout', 'SessionsController@destroy')->name('logout');
 
-Route::get('entrance', 'StaticPagesController@entrance')->name('entrance');
+Route::get('/', 'StaticPagesController@entrance')->name('entrance');
 Route::get('nb/table', 'NianBaosController@index')->name('nb_table');

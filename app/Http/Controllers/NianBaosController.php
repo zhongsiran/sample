@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\NianBao;
 
 class NianBaosController extends Controller
 {
@@ -11,9 +12,10 @@ class NianBaosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('nianbaos.table');
+        $corps = NianBao::paginate(4);
+        return view('nianbaos.table', ['corps' => $corps]);
     }
 
     /**

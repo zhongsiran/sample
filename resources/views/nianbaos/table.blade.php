@@ -4,4 +4,12 @@
 <div id="app">
 
 </div>
+@foreach($corps as $corp)
+    <br />
+    {{ strval($corp->regnum)}} <br />
+    {{ $corp->corpname }} <br />
+    {{ $corp->rep_person }} <br />
+    <br />
+@endforeach
+{{ $corps->links() }}
 @stop

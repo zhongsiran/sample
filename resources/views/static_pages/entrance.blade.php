@@ -51,7 +51,7 @@
                             <input type="submit" class="btn btn-primary btn-lg" role="button" value="点击进入">
                         </form>
                     </div>
-                    <div class="jumbotron col-md-6 text-center" style="height: 472px;">
+                    <div class="jumbotron col-md-6 text-center">
                         <h1>统计模块</h1>
                         <p>查看年报统计情况</p>
                         <p><a class="btn btn-primary btn-lg" href="#" role="button">点击进入</a></p>

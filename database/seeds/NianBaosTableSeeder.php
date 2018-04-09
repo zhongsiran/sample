@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Models\NianBao;
 
-class DatabaseSeeder extends Seeder
+class NianBaosTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,7 +12,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
-        $this->call(NianBaosTableSeeder::class);
+        $nianbao = factory(NianBao::class)->times(500)->create();
     }
 }
