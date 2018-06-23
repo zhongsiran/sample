@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Models\User;
@@ -57,7 +58,13 @@ class UsersController extends Controller
 
     public function edit(User $user)
     {
-        $this->authorize('update', $user);
+        try {
+            $this->authorize('update', $user);
+        } catch (AuthorizationException $e) {
+            session()->flash('danger', '禁止访问');
+            return back();
+        }
+
         return view('users.edit', compact('user'));
     }
 
@@ -68,7 +75,12 @@ class UsersController extends Controller
             'password' => 'nullable|confirmed|min:6'
         ]);
 
-        $this->authorize('update', $user);
+        try {
+            $this->authorize('update', $user);
+        } catch (AuthorizationException $e) {
+            session()->flash('danger', '禁止访问');
+            return back();
+        }
 
         $data = [];
         $data['name'] = $request->name;
